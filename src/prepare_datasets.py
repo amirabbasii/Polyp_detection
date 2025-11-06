@@ -1,4 +1,4 @@
-from mask_conversion import mask_to_bbox, mask_to_border
+from mask_conversion import mask_to_bbox
 import os
 import cv2
 import json
@@ -6,8 +6,6 @@ import shutil
 import numpy as np
 import random
 from skimage import io
-from ultralytics import YOLO
-
 
 
 def create_data_directories():
@@ -249,13 +247,23 @@ def prepare_endoscene():
 def save_yaml():
     conf = (
         "train: /content/data/images/train\n\n"
-        "val: /content/data/images/test\n\n"
-        "test: /content/data/images/test\n\n"
+        "val: /content/data/images/val\n\n"
         "nc: 1\n\n"
         "names: ['x']"
     )
     with open("VOC.yaml", "w") as f:
         f.write(conf)
+
+
+    ### for test stage
+    conf_test = (
+        "train: /content/data/images/train\n\n"
+        "val: /content/data/images/test\n\n"
+        "nc: 1\n\n"
+        "names: ['x']"
+    )
+    with open("test.yaml", "w") as f:
+        f.write(conf_test)
 
 
 def prepare_all_datasets():

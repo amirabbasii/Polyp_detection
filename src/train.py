@@ -2,6 +2,7 @@ import argparse
 from attention_module import create_attention_model
 from ultralytics import YOLO
 from prepare_datasets import prepare_all_datasets
+from attention_module import add_attention_to_model
 
 
 def create_attention_model(pretrained_size='m'):
@@ -62,4 +63,4 @@ def main():
         batch_size=args.batch_size,
         imgsz=args.imgsz
     )
-    predictions=model.val(data="VOC.yaml")
+    model.val(data="test.yaml")

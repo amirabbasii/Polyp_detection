@@ -32,4 +32,9 @@ After training the model, the system can identify polyps in colonoscopy images, 
 | **mAP50**         | 0.981 |
 | **mAP50-95**      | 0.787 |
 
+## 🧩 Model Download
+
+You can download the pretrained model weights from the [**Releases** section](../../releases) of this repository.
+
+
 
